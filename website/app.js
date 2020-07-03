@@ -1,6 +1,6 @@
 /* Global Variables */
 let baseURL = 'http://api.openweathermap.org/data/2.5/weather?zip=';
-let apiKEY = '31d1605470c7347c57af39e5c1c3562a';
+let apiKEY = '&units=metric&appid=31d1605470c7347c57af39e5c1c3562a';
 const generate = document.getElementById('generate');
 
 // Create a new date instance dynamically with JS
@@ -30,7 +30,7 @@ async function generateFunction() {
     generate.style.backgroundColor = '#f0d43a'
     const zip = document.getElementById('zip').value;
     const userResponse = document.getElementById('feelings').value;
-    const apiURL = `${baseURL+zip},us&appid=${apiKEY}`
+    const apiURL = baseURL + zip + apiKEY;
     getWeatherData(apiURL)
     .then((data) => {
         postData('/', {temperature: data.temp, date: newDate, userResponse: userResponse})
