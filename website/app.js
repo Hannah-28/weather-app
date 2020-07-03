@@ -33,7 +33,7 @@ async function generateFunction() {
     const apiURL = baseURL + zip + apiKEY;
     getWeatherData(apiURL)
     .then((data) => {
-        postData('/', {temperature: data.temp, date: newDate, userResponse: userResponse})
+        postData('/', {temperature: data.main.temp, date: newDate, userResponse: userResponse})
     })
     .then(() => {updateUI()}
     );
